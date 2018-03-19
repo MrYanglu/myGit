@@ -1,0 +1,17 @@
+function setStar(el,num){
+	var parentDIV = el.parentElement;//获取父级DIV
+	var list = parentDIV.getElementsByTagName("i");//获取父级DIV包含的i标签
+	var input = parentDIV.getElementsByTagName("input");//获取父级DIV包含的input标签
+	$(input[0]).val(num);
+	$.each(list,function(index,obj){
+		if(index < num){
+			$(obj).removeClass("sure").addClass("sure");
+		}else{
+			$(obj).removeClass("sure");
+		}
+	});
+}
+
+恢复oracle误删
+select * from b2b_product  as of TIMESTAMP to_timestamp('20171228 152500','yyyymmdd hh24miss')
+  where product_id not in (select product_id from b2b_product)
